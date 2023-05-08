@@ -130,6 +130,10 @@ namespace BettingSiteNet.Controllers
                 {
                     if (prediction.HomeTeamScore - prediction.EnemyTeamScore == matchup.HomeTeamScore - matchup.EnemyTeamScore)
                     {
+                        if (prediction.HomeTeamScore == prediction.EnemyTeamScore)
+                        {
+                            prediction.PointsEarned = 0;
+                        }
                         prediction.PointsEarned = tournament.PointForDifference;
                     }
                     else

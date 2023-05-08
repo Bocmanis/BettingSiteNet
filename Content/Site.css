@@ -108,3 +108,18 @@ button {
     color: azure;
     background-color: rgba(0,0,0,0.6);
 }
+
+
+th.sorttable_sorted::after {
+    background: url(my-sorted-icon.png);
+    background-size: contain;
+}
+
+th.sorttable_sorted_reverse::after {
+    background: url(my-sorted-reversed-icon.png);
+    background-size: cover;
+}
+
+#sorttable_sortfwdind, #sorttable_sortrevind {
+    display: none;
+} 

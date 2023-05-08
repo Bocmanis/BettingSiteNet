@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = Model.Tournament.Name;
 }
-
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 @*<h2 class="main">@Model.Tournament.Name</h2>*@
 <button type="button" class="collapsible">Informācija</button>
 <div class="content">
@@ -36,11 +36,13 @@
 </div>
 <hr />
 <div>
-    <table class="bigTable">
+    <table class="bigTable sortable">
         <tr>
             <th></th>
             @Html.EditorFor(model => model.Tournament.Matchups)
-            <th style="vertical-align:bottom;padding-right: 5px;padding-left: 5px;">Punkti</th>
+            <th style="vertical-align:bottom;padding-right: 5px;padding-left: 5px;" class="sorttable_numeric">Punkti</th>
+        </tr>
+        <tr>
         </tr>
         <tr>
         </tr>
@@ -124,7 +126,7 @@
                     location.reload();
                 },
                 error: function () {
-                    alert("somthing went horribly wrong. Contact Edgars :)");
+                    alert("something went horribly wrong. Contact Edgars :)");
                 }
             });
             console.log("home team:" + homeTeamScore.val() + " enemy team:" + enemyTeamScore.val() + " matchup:" + matchupId);

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace BettingSiteNet.Models
 {
-    public class Prediction
+    public class Prediction : IValidatableObject
     {
         public int Id { get; set; }
         public int MatchupId { get; set; }
         public Guid AspNetUserId { get; set; }
+
         public int? HomeTeamScore { get; set; }
 
         public int? EnemyTeamScore { get; set; }
@@ -24,5 +25,12 @@ namespace BettingSiteNet.Models
         [NotMapped]
         public string HomeTeamScoreText { get; set; }
 
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (HomeTeamScore == EnemyTeamScore)
+            {
+                yield return new ValidationResult("Neizšķirts nevar būt. :)");
+            }
+        }
     }
 }
