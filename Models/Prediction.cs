@@ -27,7 +27,7 @@ namespace BettingSiteNet.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (HomeTeamScore == EnemyTeamScore)
+            if (HomeTeamScore != null && HomeTeamScore == EnemyTeamScore)
             {
                 yield return new ValidationResult("Neizšķirts nevar būt. :)");
             }
